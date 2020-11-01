@@ -25,8 +25,7 @@ class CommentForm extends Component{
 	}
 
 	handleSubmit(values){
-		console.log('Current State is: '+JSON.stringify(values));
-        alert('Current State is: '+JSON.stringify(values));
+		this.props.addComment(this.props.dishId,values.rating,values.author,values.comment);
 	}
 
 	render(){
@@ -89,7 +88,7 @@ class CommentForm extends Component{
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Col md={{size:12, offset:2}}>
+                                <Col md={12}>
                                     <Button type="submit" color="primary">Submit</Button>
                                 </Col>
                             </Row>
