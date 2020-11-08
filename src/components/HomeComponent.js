@@ -16,10 +16,10 @@ function RenderCard({item,isLoading,errMess}){
 		);
 	}
 
-	else{
+	else if(item!=null){
 		return (
 			<Card>
-				<CardImg src={baseUrl+item.image} alt={item.name} />
+				<CardImg src={baseUrl + item.image} alt={item.name} />
 			 	<CardBody>
 					<CardTitle>{item.name}</CardTitle>
 		 			{item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null}
@@ -28,6 +28,11 @@ function RenderCard({item,isLoading,errMess}){
 			</Card>
 		);
 	}
+
+	else
+		return (
+			<div></div>
+		);
 }
 
 function Home(props) {
@@ -35,7 +40,7 @@ function Home(props) {
 		<div className="container">
 			<div className="row align-items-start">
 				<div className="col-12 col-md-3 m-1">
-					<RenderCard item={props.dish} isLoading={props.disheLoading} errMess={props.disheErrMess} />
+					<RenderCard item={props.dish} isLoading={props.dishLoading} errMess={props.dishErrMess} />
 				</div>
 				<div className="col-12 col-md-3 m-1">
 					<RenderCard item={props.promotion} isLoading={props.promoLoading} errMess={props.promoErrMess} />
